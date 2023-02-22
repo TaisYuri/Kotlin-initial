@@ -15,9 +15,12 @@ fun main(args: Array<String>) {
         Direcao.OESTE -> println("rotacionar 90 graus ao oeste")
         else -> println("rotacionar 90 graus ao sul")
     }
+    for(dir in Direcao.values()){
+        println(dir)
+    }
 
 //-------------------ENUM COM PARAMETRO
-    println("ENUM de pessoa ${PessoaEnum.LUCAS.nome}")
+    println("ENUM de pessoa ${Prioridade.Baixa}")
 
 //-------------------SEALED (FUNÇÃO DE CHAMADA CRIADA MAIS ABAIXO)
     verificaConta(ContaBancaria.Padrao)
@@ -34,9 +37,14 @@ enum class Direcao {
 }
 
 //ENUM com parametros
-enum class PessoaEnum(val nome: String, val idade: Int) {
-    LUCAS("Lucas", 10),
-    MARIA("Maria", 52)
+enum class Prioridade(val value: Int) {
+    Baixa( 1){
+        override fun toString(): String {
+            return "Prioridade baixa: $value"
+        }
+             },
+    Media(5),
+    Alta( 13),
 }
 
 //SEALED Class
