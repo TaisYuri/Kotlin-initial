@@ -10,12 +10,21 @@ fun main(args: Array<String>) {
     println( printUser(User("Tais", 30)))
 
 
-    //------------------------Lambda
+    //------------------------Lambda (Funções anonimas)
+    // {parametros -> corpo}
+    val multiplicacao = { x: Int, y: Int -> x * y}
+
     val contemQtdCaracteres: (String) ->  Boolean = {nome -> nome.length > 5}
     println(contemQtdCaracteres("Teste de string"))
 
     val soma: (Int, Int) -> Int = { x, y -> x + y}
     println(soma(13, 21))
+
+    fun receiveABC( lamb: (a: Int, b: Int, c: Int) -> Int){}
+    receiveABC{x: Int, y: Int, z: Int ->
+        println("executando função lambda")
+        x + y + z
+    }
 
     //------------------------ EXTENSION FUNCTIONS
     val idadeDog = 10
